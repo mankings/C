@@ -1,0 +1,16 @@
+// canetas
+
+:)
+ comentario : I am Beautiful
+(:;
+
+Pen penBlaBla -> {
+    thickness : 2,
+    direction : up
+};
+
+//penBlaBla : {direction : up};
+//penBlaBla : {direction : down}
+
+
+Pen penBlaBla -> {thickness : 2};

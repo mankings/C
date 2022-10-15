@@ -1,0 +1,28 @@
+// Testar If e Else 
+
+Int inp -> 0;
+
+Pen P1 -> {color : #ffcbdb};
+P1 moveTo (500, 500);
+
+output "Largura do Traço of the Pen";
+
+inp -> input Int;
+
+if (inp > 0) -> {
+    output "oi";
+    P1 -> {thickness : inp};
+    P1 down;
+    P1 move 100;
+} else -> {
+    output("Por favor escolha um número inteiro Positivo");
+}
+
+/*
+if(llo) -> {
+    String np -> "vnwoib";
+}
+
+// Exemplo Erro
+
+*/

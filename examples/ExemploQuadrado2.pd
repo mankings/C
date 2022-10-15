@@ -1,0 +1,30 @@
+// Criar um quadrado em espiral branco
+
+Pen pSquare -> {thickness: 2, color: #FFFFFF};
+
+pSquare moveTo (0, 0);
+pSquare down;
+
+pSquare rotate UP;
+pSquare move7;
+
+pSquare rotate RIGHT;
+pSquare move 6;
+
+pSquare rotate DOWN;
+pSquare move 5;
+
+pSquare rotate LEFT;
+pSquare move 4;
+
+pSquare rotate UP;
+pSquare move 3;
+
+pSquare rotate RIGHT;
+pSquare move 2;
+
+pSquare rotate DOWN;
+pSquare move 1;
+
+pSquare up;
+// done

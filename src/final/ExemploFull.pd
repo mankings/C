@@ -1,0 +1,25 @@
+import "ExemploFull.pen" as P1;
+import "ExemploFull.pen" as P2;
+import "ExemploFull.pen" as P3;
+
+P1 moveTo (100, 100);
+P2 moveTo (500, 100);
+
+P3 moveTo (300, 400);
+
+Group G1 -> Pen [P1, P2];
+
+G1 down;
+P3 down;
+
+// Quadrados
+Int nQ -> 4;
+repeat (nQ) times -> {
+    (G1 move 50) rotate 360 / nQ;
+}
+
+// Hexágono
+Int nH -> 6;
+repeat (nH) times -> {
+    (P3 move 50) rotate 360 / nH;
+}

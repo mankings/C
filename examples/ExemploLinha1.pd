@@ -1,0 +1,29 @@
+// Criar uma linha azul do ponto (2,3) ao ponto (2,12). E uma linha amarela que intersete
+
+String s -> "s";
+
+Pen P1 -> {thickness : 1, color: #222222};
+
+P1 -> {thickness: 1};
+
+P1 moveTo (10, 10);
+
+P1 down;
+
+P1 move 500;
+
+Pen P2 -> {thickness : 1, color: #333333};
+
+P2 up;
+
+P2 moveTo(0,60);
+
+P2 down;
+
+P2 rotate (RIGHT);
+
+P2 move 90; 
+
+P2 up;
+
+/* Oi Beleza */

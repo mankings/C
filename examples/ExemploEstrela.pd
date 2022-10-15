@@ -1,0 +1,179 @@
+// Programa que desenha Estrelas consoante o input de um user 
+
+// Declarar variáveis precisas
+
+Int angPequeno -> 36;
+
+Int angGrande -> 72;
+
+Int nEstrelas -> 0;
+
+Int count -> 1;
+
+Boolean use -> true;
+
+Int x -> 200;
+
+Int y -> 200;
+
+Int tamanho -> 10;
+
+String msg -> "Número de Estrelas entre 0 a 60: ";
+
+String msgError -> "O número deve estar entre 0 a 60. Insira o Número de Estrelas de novo: ";
+
+Int varAumenta -> 30;
+
+Pen PEstrelas -> {color : #ffffff};
+
+
+// Desenhar e mover a caneta
+
+output(msg);
+
+nEstrelas -> input Int;
+
+repeat(use) -> {
+    if((nEstrelas >= 0) and (nEstrelas <= 60)) -> {
+        use -> false;
+    } else -> {
+        output(msgError);
+        nEstrelas -> input Int;
+    }
+}
+
+
+if (nEstrelas < 5) -> {
+    tamanho -> 100;
+    varAumenta -> 250;
+    if (nEstrelas == 1) -> {
+        x -> 500;
+        y -> 500;
+    }
+} else -> {
+    y -> 50;
+}
+
+Int x2 -> x - 150;
+Int y2 -> y;
+
+repeat(nEstrelas) times -> {    
+    // output(x2);
+    //  PEstrelas moveTo (x, y);   
+        
+    if (count > 30) -> {  
+        PEstrelas moveTo (x2, y2);  
+        x2 -> x2 + varAumenta;
+        y2 -> y2 + varAumenta;
+  
+    } else -> {    
+        PEstrelas moveTo (x, y);  
+        x -> x + varAumenta;
+        y -> y + varAumenta;
+
+    }
+
+
+    PEstrelas down;
+
+    PEstrelas rotate angGrande;
+    PEstrelas move tamanho;
+    PEstrelas rotate (180-angPequeno);
+    PEstrelas move tamanho;
+
+    repeat(4) times -> {
+        PEstrelas rotate (-angGrande);
+        PEstrelas move tamanho;
+        PEstrelas rotate (180-angPequeno);
+        PEstrelas move tamanho;
+    }
+
+    PEstrelas up;
+
+    count -> count + 1;
+
+}
+
+// Fazer um monte de rodinhas fofinhas num lugar expecífico, apenas para fazer o programa em cima mais bonito.
+
+// imports da segunda gramática
+
+import "myPens.pen" as P1;
+import "myPens.pen" as P2;
+import "myPens.pen" as P3;
+import "myPens.pen" as P4;
+import "myPens.pen" as P5;
+import "myPens.pen" as P6;
+import "myPens.pen" as P7;
+import "myPens.pen" as P8;
+import "myPens.pen" as P9;
+import "myPens.pen" as P10;
+import "myPens.pen" as P11;
+import "myPens.pen" as P12;
+import "myPens.pen" as P13;
+import "myPens.pen" as P14;
+import "myPens.pen" as P15;
+import "myPens.pen" as P16;
+import "myPens.pen" as P17;
+import "myPens.pen" as P18;
+
+//Exemplo a usar a seguir
+Pen rosa -> {color : #ffd1eb};
+
+rosa moveTo (200, 800);
+
+rosa down;
+
+repeat(10) times -> {
+    rosa move 500 rotated angGrande;
+    rosa move 500 rotated angPequeno;
+}
+
+rosa up;
+
+rosa moveTo (328, 923);
+
+rosa down;
+
+repeat(10) times -> {
+    rosa move 100 rotated angGrande;
+    rosa move 100 rotated angPequeno;
+}
+
+rosa up;
+
+// colocar canetas nos pontos que eu quero
+
+P9 moveTo (1000, 110);
+P6 moveTo (1200, 110);
+P8 moveTo (1400, 110);
+P7 moveTo (1600, 110);
+P4 moveTo (1800, 110);
+P1 moveTo (1100, 310);
+P2 moveTo (1300, 310);
+P3 moveTo (1500, 310);
+P5 moveTo (1700, 310);
+P10 moveTo (1000, 510);
+P12 moveTo (1200, 510);
+P11 moveTo (1400, 510);
+P13 moveTo (1600, 510);
+P14 moveTo (1800, 510);
+P15 moveTo (1100, 710);
+P16 moveTo (1300, 710);
+P17 moveTo (1500, 710);
+P18 moveTo (1700, 710);
+rosa moveTo (1650, 900);
+PEstrelas moveTo (1800, 900);
+
+// Começar o processo
+
+Group pens -> Pen [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P13, P14, P15, P16, P17, P18, P12, rosa, PEstrelas]; 
+
+pens down;
+
+repeat (10) times -> {
+    pens move 1000 rotated angGrande;
+    pens move 1000 rotated angPequeno;
+}
+
+pens up;

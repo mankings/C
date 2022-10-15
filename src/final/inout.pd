@@ -1,0 +1,5 @@
+String a -> input String;
+Pen p1 -> {thickness:10};
+p1 down;
+p1 move 500;
+output a;

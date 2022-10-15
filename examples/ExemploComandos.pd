@@ -1,0 +1,16 @@
+// canetas
+
+import "pasta.caneta" as P;
+
+/*
+ comentario : I am Beautiful
+*/
+
+P -> {thickness : 2};
+//P -> {direction : UP};
+P down;
+P up;
+P move(5);
+P moveTo(2,3);
+P rotate(60);
+Pen P2 -> {thickness:2,color:#ffffff};

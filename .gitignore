@@ -1,0 +1,10 @@
+*.class
+*Parser.*
+*Lexer.*
+*Listener.*
+*Visitor.*
+.antlr
+src/PDraw/build/*
+src/final/library/build/*
+src/PDraw/.idea/*
+cmake-build*

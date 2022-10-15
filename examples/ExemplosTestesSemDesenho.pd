@@ -1,0 +1,85 @@
+// Testar operações matemáticas
+1/2;
+
+// -v1; // exemplo erro
+
+1*4;
+
+// 12/0; // exemplo erro
+
+// 1*v1;  // exemplo erro
+
+1 + 2;
+
+// 1 or 2; // exemplo erro
+
+// 2 and 2; // exemplo erro
+
+// 1 or v1; // exemplo erro
+
+// 1 + v1; // exemplo erro
+
+Int v1 -> 20;
+
+// v1 < el; // exemplo erro
+
+Int el -> 1;
+
+Int es -> 0;
+
+// v1 or el; // exemplo erro
+
+// v1 and el; // exemplo erro
+
+v1*el;
+
+v1/el;
+
+// v1/es;
+
+v1 + el;
+
+Boolean exp1 -> (v1 == el);
+
+Boolean exp2 -> (1 > 3);
+
+exp1 or exp2;
+
+exp1 and exp2;
+
+// 2 > "fueg"; // exemplo erro
+
+// testar move rotated
+
+Pen P4 -> {thickness : 1, color: #222222};
+
+String lol -> "fneibl";
+
+P4 move 12 rotated UP;
+
+P4 move 2 rotated 12;
+
+// P4 move 8 rotated oi; // exemplo erro
+
+// P4 move 2 rotated "nviweb"; // exemplo erro
+
+// P4 move oi rotated "npod"; // exemplo erro
+
+// P4 move oi rotated 12; // exemplo erro
+
+// P4 move "mcfopen" rotated 12; // exemplo erro
+
+// P4 move lol rotated 12; // exemplo erro
+
+// P4 move 12 rotated lol; // exemplo erro
+
+// P4 move "kdewpij" rotated lol; // exemplo erro
+
+// place move 1 rotated 345; // exemplo erro
+
+
+// Testar Grupo
+
+Pen [P1, P4];
+
+// Group myPens -> Pen [P1, P2, P4];

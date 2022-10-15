@@ -1,0 +1,5 @@
+Pen p1 -> {thickness:1,color : #2ad8fb};
+
+repeat (5) times -> {p1 move 10;
+    p1 rotate 20;
+}

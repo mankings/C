@@ -1,0 +1,19 @@
+// Isto é um comentário
+
+Pen canetaBanana -> {
+    thickness : 2
+    color : yellow
+    line_format : dashed
+}
+
+Pen canetaOink -> {
+    thickness : 4
+    color : pink
+    line_format : continuous
+}
+
+Pen canetaMorango -> {
+    thickness : 1
+    color : red
+    line_format : dashed
+}

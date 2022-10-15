@@ -1,0 +1,147 @@
+main(stat) ::= <<
+#include \<vector>
+#include \<future>
+#include \<string>
+#include "SDL.h"
+#include "lib/Pen.h"
+#include "lib/Color.h"
+#include "lib/Point.h"
+#include "lib/Importer.h"
+
+std::vector\<GFX::Pen*> pens;
+std::mutex penMutex;
+
+int render()
+{
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+        return -1;
+    }
+
+    SDL_Window* window;
+    SDL_Renderer* renderer;
+    if (SDL_CreateWindowAndRenderer(1920, 1080, 0, &window, &renderer) != 0) {
+        return -1;
+    }
+
+    SDL_bool done = SDL_FALSE;
+    while (!done) {
+        SDL_Event event;
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderClear(renderer);
+        {
+            std::lock_guard\<std::mutex> locker(penMutex);
+            for (GFX::Pen *p : pens) {
+                p->setDrawColor(renderer);
+                for (PMath::Line l : p->getLines()) {
+                    l.draw(renderer);
+                }
+            }
+        }
+        SDL_RenderPresent(renderer);
+
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                done = SDL_TRUE;
+            }
+        }
+    }
+
+    if (renderer) {
+        SDL_DestroyRenderer(renderer);
+    }
+    if (window) {
+        SDL_DestroyWindow(window);
+    }
+
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    std::thread renderThread(render);
+    
+    <stats(stat)>
+
+    renderThread.join();
+}
+>>
+
+stats(stat) ::= <<
+<if(stat)><stat; separator="\n"><endif>
+>>
+
+decl(type,var,value) ::= "<type> <var><if(value)> = <value><endif>;"
+
+binaryOperation(type,var,e1,op,e2) ::= "<decl(type,var,[e1,\" \",op,\" \",e2])>"
+
+importStat(var1,var2,name,penname) ::= <<
+auto <var1> = Import::load(argv[0], <name>);
+GFX::Pen* <var2>;
+if (<var1>.count("<penname>") > 0) {
+    <var2> = <var1>["<penname>"];
+    pens.push_back(<var2>);
+} else {
+    std::cerr \<\< "Could not load pen file - '" \<\< <name> \<\< "'" \<\< std::endl;
+    return -1;
+}
+>>
+
+reassignPen(var,arglist) ::= <<
+<var>->reassign(GFX::PenArgs {<arglist>});
+>>
+
+reassignment(var,value) ::= "<var> = <value>;"
+
+newPen(varname,arglist) ::= <<
+GFX::Pen* <varname> = new GFX::Pen(GFX::PenArgs {<arglist>});
+pens.push_back(<varname>);
+>>
+
+penArgList(prop) ::= "<prop; separator=\",\">"
+
+prop(name,value) ::= "<name>=<value>"
+
+color(var,red,green,blue) ::= "GFX::Color <var> = GFX::Color(<red>, <green>, <blue>);"
+
+colorDecl(red,green,blue) ::= "GFX::Color(<red>, <green>, <blue>)"
+
+parameter(param, value) ::= "<param> = <value>"
+
+method(var,method,args) ::= "<var>-><method>(<args; separator=\",\">);"
+
+batchMethods(groupvar,method,args) ::= <<
+for (GFX::Pen* element : <groupvar>) {
+    element-><method>(<args; separator=",">);
+}
+>>
+
+defineGroup(type,varname,expr) ::= "std::vector\<<type>> <varname> = {<expr; separator=\",\">};"
+
+readInput(type,varname) ::= <<
+<type> <varname>;
+std::cin >\> <varname>;
+>>
+
+print(varname) ::= "std::cout \<\< <varname> \<\< std::endl;"
+
+newPoint(var,x,y) ::= "PMath::Point <var>(<x>, <y>);"
+
+ifelse(cond, stat1, stat2) ::= <<
+if (<cond>) {
+    <stats(stat1)>
+} else {
+    <stats(stat2)>
+}
+>>
+
+repeatUntil(cond,stat) ::= <<
+while (<cond>) {
+    <stats(stat)>
+}
+>>
+
+repeatNTimes(n,stat) ::= <<
+for (int i = 0; i \< <n>; i++) {
+    <stats(stat)>
+}
+>>

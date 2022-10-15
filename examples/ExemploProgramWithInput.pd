@@ -1,0 +1,7 @@
+// Programa que precisa de um input
+
+Pen p2;
+
+Int n = input(Int);
+
+p2.thickness -> n

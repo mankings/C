@@ -1,0 +1,11 @@
+Pen p1 -> {thickness:1,color : #2ad8fb};
+p1 down;
+repeat (5) times -> {p1 move 10;
+    p1 rotate 20;
+}
+
+Boolean b -> false;
+
+repeat (b) -> {
+    p1 rotate 20;
+}

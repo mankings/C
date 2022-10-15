@@ -1,0 +1,4 @@
+Pen P1 -> {name: "Pen1"};
+Group G1 -> Pen [P1];
+(P1 down) move 50;
+output P1;

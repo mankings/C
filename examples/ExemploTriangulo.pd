@@ -1,0 +1,17 @@
+// Criar um triangulo 
+
+Pen Ptrig -> { color: #aaa0ff};
+
+Ptrig moveTo (500, 500);
+
+Ptrig down;
+
+Ptrig move 400;
+
+Ptrig rotate (60);
+
+Ptrig move 400;
+
+Ptrig rotate (60);
+
+Ptrig move 400;

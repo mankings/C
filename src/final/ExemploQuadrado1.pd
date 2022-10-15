@@ -1,0 +1,27 @@
+// Criar um quadrado azul 
+
+Pen pSquare -> {thickness:2, color : #2ad8fb} ;
+
+pSquare up;
+
+pSquare moveTo (500, 500);
+
+pSquare down;
+
+pSquare rotate (UP);
+
+pSquare move(50);
+
+pSquare rotate (LEFT);
+
+pSquare move 50;
+
+pSquare rotate (DOWN);
+
+pSquare move 50;
+
+pSquare rotate (RIGHT);
+
+pSquare move 50;
+
+pSquare up;

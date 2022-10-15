@@ -1,0 +1,17 @@
+//Criar um triangulo azul
+
+Pen PtrigAzul -> {thickness:2, color : #2ad8fb} ;
+
+PtrigAzul down;
+
+PtrigAzul move 8;
+
+PtrigAzul rotate (60);
+
+PtrigAzul move (8);
+
+PtrigAzul rotate 60;
+
+PtrigAzul move (8);
+
+PtrigAzul up;

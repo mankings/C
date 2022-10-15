@@ -1,0 +1,12 @@
+import "ExemploImport.pen" as P1;
+import "ExemploImport.pen" as P2;
+
+P1 down;
+P1 move 50;
+P1 up;
+
+P2 up;
+P2 moveTo (0, 50);
+P2 down;
+P2 move 100;
+P2 up;
